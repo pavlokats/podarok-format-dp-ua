@@ -29,9 +29,9 @@ const jsLoaders = () => {
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
-  entry: {
-    main: './index.js'
-  },
+  entry: [
+    './js/index.js'
+  ],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js'
@@ -44,7 +44,12 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html'
+      filename: 'index.html',
+      template: './pages/index.html'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'bukva-a.html',
+      template: './pages/bukva-a.html'
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
@@ -76,7 +81,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: /node_modiles/,
+        exclude: /node_modules/,
         use: jsLoaders()
       }
     ]
