@@ -49,8 +49,20 @@ module.exports = {
       template: './pages/index.html'
     }),
     new HtmlWebpackPlugin({
-      filename: 'bukva-a.html',
-      template: './pages/bukva-a.html'
+      filename: 'pivnaya-kruzgka.html',
+      template: './pages/pivnaya-kruzgka.html'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'stakan-dlya-viski.html',
+      template: './pages/stakan-dlya-viski.html'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'bokal-dlya-vina.html',
+      template: './pages/bokal-dlya-vina.html'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'chashka.html',
+      template: './pages/chashka.html'
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
