@@ -30,19 +30,26 @@ body {
     }
 
     .item-beer {
-      background-color: $productListItemBeerBackgroundColor;
+      background: $productListItemBeerBackgroundColor url(../images/homepage-product-beer.jpg) center center no-repeat;
     }
 
     .item-whiskey {
-      background-color: $productListItemWhiskeyBackgroundColor;
+      background: $productListItemWhiskeyBackgroundColor url(../images/homepage-product-whiskey.jpg) center center no-repeat;
     }
 
     .item-wine {
-      background-color: $productListItemWineBackgroundColor;
+      background: $productListItemWineBackgroundColor url(../images/homepage-product-wine.jpg) center center no-repeat;
     }
 
     .item-cup {
-      background-color: $productListItemCupBackgroundColor;
+      background: $productListItemCupBackgroundColor url(../images/homepage-product-mug.jpg) center center no-repeat;
+    }
+
+    .item-beer,
+    .item-whiskey,
+    .item-wine,
+    .item-cup {
+      background-size: cover;
     }
   }
 }

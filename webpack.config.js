@@ -73,7 +73,11 @@ module.exports = {
       patterns: [
         {
           from: path.resolve(__dirname, 'src/favicon.ico'),
-          to: path.resolve(__dirname, 'dist/')
+          to: path.resolve(__dirname, 'dist')
+        },
+        {
+          from: path.resolve(__dirname, 'src/images'),
+          to: path.resolve(__dirname, 'dist/images')
         }
       ]
     })
@@ -82,14 +86,17 @@ module.exports = {
     rules: [
       {
         test: /\.(png|jpg|svg|gif)$/,
-        use: ['file-loader']
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+        }
       },
       {
         test: /\.s[ac]ss$/i,
         use: [{
           loader: MiniCssExtractPlugin.loader,
           options: {
-            publicPath: '../'
+            publicPath: './'
           },
         }, 'css-loader', 'sass-loader']
       },
