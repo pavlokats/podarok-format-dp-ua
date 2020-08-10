@@ -4,6 +4,27 @@ body {
   color: $color;
 }
 
+.header-container {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.header {
+  display: flex;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.banner-container {
+  background: #f0f0f0;
+}
+
+.banner {
+  display: flex;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
 .homepage {
   .product-list {
     display: flex;
@@ -64,11 +85,46 @@ body {
 
   .sidebar {
     width: 250px;
+    background: #f0f0f0;
 
     form {
       display: flex;
       flex-flow: column;
     }
+  }
+}
+
+.product {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+
+  .name {
+    font-size: 48px;
+  }
+
+  .wish {
+    font-size: 36px;
+  }
+
+  .template {
+    font-size: 120px;
+  }
+}
+
+.constructor-form {
+  .form-group {
+    display: flex;
+    flex-flow: column;
+  }
+
+  .select-template-form {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  .select-number-container {
+    display: none;
   }
 }
 

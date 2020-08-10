@@ -17,30 +17,118 @@
           <a href="index.html">Выбрать другую основу</a>
         </div>
         <div class="product">
-
+          <div class="product-content">
+            <div id="templateoutput" class="template">А</div>
+            <div id="nameoutput" class="name">Введите имя</div>
+            <div id="wishoutput" class="wish">Ваше пожелание</div>
+          </div>
         </div>
         <div class="buy-button">
 
         </div>
       </div>
       <div class="sidebar">
-        <form>
-          <div>
-            <label for="producttype">Выберите продукт:</label>
-            <select name="producttype">
-            <option>Пивная кружка</option>
-            <option>Стакан для виски</option>
-            <option>Винный бокал</option>
-            <option>Чашка</option>
-            </select>
+        <form class="constructor-form">
+          <div class="form-group">
+            <label for="producttype">Выберите шаблон:</label>
+            <div class="select-template-form">
+              <div class="select-template-container">
+                <select id="select-template" name="template">
+                  <option value="1">Буква</option>
+                  <option value="2">Число</option>
+                </select>
+              </div>
+              <div class="select-letter-container">
+                <select id="select-letter">
+                  <option value="1">А</option>
+                  <option value="2">Б</option>
+                  <option value="3">В</option>
+                  <option value="4">Г</option>
+                  <option value="5">Д</option>
+                  <option value="6">Е</option>
+                  <option value="7">Є</option>
+                  <option value="8">Ж</option>
+                  <option value="9">З</option>
+                  <option value="10">И</option>
+                  <option value="11">I</option>
+                  <option value="12">К</option>
+                  <option value="13">Л</option>
+                  <option value="14">М</option>
+                  <option value="15">Н</option>
+                  <option value="16">О</option>
+                  <option value="17">П</option>
+                  <option value="18">Р</option>
+                  <option value="19">С</option>
+                  <option value="20">Т</option>
+                  <option value="21">У</option>
+                  <option value="22">Ф</option>
+                  <option value="23">Х</option>
+                  <option value="24">Ц</option>
+                  <option value="25">Ч</option>
+                  <option value="26">Ш</option>
+                  <option value="27">Щ</option>
+                  <option value="28">Э</option>
+                  <option value="29">Ю</option>
+                  <option value="30">Я</option>
+                </select>
+              </div>
+              <div class="select-number-container">
+                <select id="select-number">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                  <option value="32">32</option>
+                  <option value="33">33</option>
+                  <option value="34">34</option>
+                  <option value="35">35</option>
+                  <option value="36">36</option>
+                  <option value="37">37</option>
+                  <option value="38">38</option>
+                  <option value="39">39</option>
+                  <option value="40">40</option>
+                </select>
+              </div>
+            </div>
           </div>
           <div>
-            <label for="name">Имя:</label>
-            <input type="text" name="name">
+            <div class="form-group">
+              <label for="name">Имя:</label>
+              <input type="text" name="name" id="nameinput">
+            </div>
           </div>
           <div>
-            <label for="wish">Ваше пожелание:</label>
-            <textarea name="wish"></textarea>
+            <div class="form-group">
+              <label for="wish">Ваше пожелание:</label>
+              <textarea name="wish" id="wishinput"></textarea>
+            </div>
           </div>
         </form>
       </div>
