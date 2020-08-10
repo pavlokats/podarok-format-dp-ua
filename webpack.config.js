@@ -81,6 +81,10 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/images'),
           to: path.resolve(__dirname, 'dist/images')
+        },
+        {
+          from: path.resolve(__dirname, 'src/site.webmanifest'),
+          to: path.resolve(__dirname, 'dist')
         }
       ]
     })
@@ -93,6 +97,12 @@ module.exports = {
         options: {
           name: '[path][name].[ext]',
         }
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader,
+          'css-loader'
+       ]
       },
       {
         test: /\.s[ac]ss$/i,
