@@ -1,14 +1,16 @@
-.header-container {
+.header {
   border-bottom: 1px solid #f0f0f0;
 
-  .header {
+  &-inner {
     display: flex;
     max-width: 1170px;
     margin: 0 auto;
-    height: 50px;
+    height: 60px;
     padding: 0 20px;
 
     .logo {
+      padding-top: 10px;
+
       img {
         display: block;
       }
@@ -18,6 +20,55 @@
       ul {
         list-style-type: none;
         margin: 0;
+      }
+    }
+  }
+
+  &-banner {
+    background: #fff url(../../images/homepage-banner.jpg) center center no-repeat;
+    background-size: cover;
+
+    .banner-inner {
+      display: flex;
+      max-width: 1170px;
+      margin: 0 auto;
+      padding: 50px 20px;
+
+      .banner-content-left {
+        width: 100%;
+        text-align: center;
+
+        @media all and (min-width: 768px) {
+          width: 50%;
+          text-align: left;
+        }
+
+        h1 {
+          color: #fff;
+          font-size: 200%;
+        }
+
+        p {
+          color: #fff;
+          font-size: 120%;
+          padding: 20px 0;
+        }
+
+        .button {
+          display: inline-block;
+          height: 50px;
+          line-height: 50px;
+          padding: 0 20px;
+          color: #fff;
+          background: #36c;
+          text-decoration: none;
+          border-radius: 3px;
+          white-space: nowrap;
+
+          &:hover {
+            background: #47d;
+          }
+        }
       }
     }
   }

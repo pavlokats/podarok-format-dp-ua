@@ -67,6 +67,10 @@ module.exports = {
       filename: 'chashka.html',
       template: './pages/chashka.html'
     }),
+    new HtmlWebpackPlugin({
+      filename: 'politics.html',
+      template: './pages/politics.html'
+    }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css'

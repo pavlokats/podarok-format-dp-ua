@@ -1,3 +1,65 @@
+@import "../colors.scss";
+
 .section-productlist {
   background: #f0f0f0;
+
+  .product-list {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    flex-flow: row wrap;
+
+    .item {
+      width: 100%;
+
+      @media all and (min-width: 480px) {
+        width: 50%;
+      }
+
+      @media all and (min-width: 768px) {
+        width: 25%;
+      }
+
+      a {
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+
+        .title {
+          display: block;
+          width: calc(100% - 10px);
+          font-size: 120%;
+          padding: 10px;
+          text-align: center;
+          color: #fff;
+        }
+      }
+    }
+
+    .item-beer {
+      background: $productListItemBeerBackgroundColor url(../../images/homepage-product-beer.jpg) center center no-repeat;
+    }
+
+    .item-whiskey {
+      background: $productListItemWhiskeyBackgroundColor url(../../images/homepage-product-whiskey.jpg) center center no-repeat;
+    }
+
+    .item-wine {
+      background: $productListItemWineBackgroundColor url(../../images/homepage-product-wine.jpg) center center no-repeat;
+    }
+
+    .item-cup {
+      background: $productListItemCupBackgroundColor url(../../images/homepage-product-mug.jpg) center center no-repeat;
+    }
+
+    .item-beer,
+    .item-whiskey,
+    .item-wine,
+    .item-cup {
+      background-size: cover;
+    }
+  }
 }
