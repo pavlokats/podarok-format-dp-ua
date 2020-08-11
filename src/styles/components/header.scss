@@ -1,0 +1,24 @@
+.header-container {
+  border-bottom: 1px solid #f0f0f0;
+
+  .header {
+    display: flex;
+    max-width: 1170px;
+    margin: 0 auto;
+    height: 50px;
+    padding: 0 20px;
+
+    .logo {
+      img {
+        display: block;
+      }
+    }
+
+    .phone {
+      ul {
+        list-style-type: none;
+        margin: 0;
+      }
+    }
+  }
+}

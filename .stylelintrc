@@ -2,6 +2,6 @@
     "extends": "stylelint-config-standard",
     "rules": {
       "indentation": 2,
-      "at-rule-no-unknown": null,
+      "at-rule-no-unknown": null
     }
 }

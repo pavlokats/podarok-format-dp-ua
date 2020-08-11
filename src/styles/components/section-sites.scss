@@ -1,0 +1,41 @@
+.section-sites {
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 50px 0 0;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+      width: 100%;
+      padding-bottom: 20px;
+
+      @media all and (min-width: 768px) {
+        width: 33.33%;
+      }
+
+      a {
+        color: #06c;
+
+        .site-image {
+          display: block;
+          text-align: center;
+          padding: 10px;
+
+          img {
+            display: block;
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            margin: 0 auto;
+          }
+        }
+
+        .site-title {
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

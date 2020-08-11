@@ -1,0 +1,37 @@
+.section-howtoorder {
+  color: #fff;
+  background-image: linear-gradient(to right, #5eb1f3, #7ec17e);
+
+  .order-steps {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 20px 0;
+
+    &-item {
+      width: 100%;
+      text-align: center;
+      padding: 20px 0;
+
+      @media all and (min-width: 480px) {
+        width: 50%;
+      }
+
+      @media all and (min-width: 768px) {
+        width: 33.33%;
+      }
+    }
+
+    img {
+      display: block;
+      width: 48px;
+      height: 48px;
+      margin: 0 auto;
+    }
+
+    h3 {
+      font-size: 100%;
+      line-height: 1.25;
+      margin: 10px 0 20px;
+    }
+  }
+}
