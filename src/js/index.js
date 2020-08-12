@@ -9,17 +9,10 @@ import $ from 'jquery';
 
 (function () {
   $( document ).ready(function() {
-    let productItem = $('.product-list .item'),
-        nameInput = $('#nameinput'),
+    let nameInput = $('#nameinput'),
         nameOutput = $('#nameoutput'),
         wishInput = $('#wishinput'),
         wishOutput = $('#wishoutput');
-    
-    productItem.height(productItem.width());
-
-    $( window ).resize(function() {
-      productItem.height(productItem.width());
-    });
 
     $("a.scrollto").on("click",function(a){
       if("" !== this.hash) {

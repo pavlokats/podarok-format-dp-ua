@@ -1,5 +1,4 @@
 @import "colors.scss";
-@import "mixins.scss";
 
 body {
   color: $color;
@@ -37,12 +36,12 @@ h2 {
   flex-flow: row nowrap;
 
   .content {
-    width: calc(100% - 250px);
+    width: calc(100% - 400px);
   }
 
   .sidebar {
-    width: 250px;
-    background: $sidebarBackgroundColor;
+    width: 400px;
+    border-left: 1px solid $sidebarBorderColor;
 
     form {
       display: flex;
@@ -52,20 +51,103 @@ h2 {
 }
 
 .product {
-  width: 300px;
+  width: 800px;
+  height: 800px;
+  position: relative;
   margin: 0 auto;
   text-align: center;
 
-  .name {
-    font-size: 48px;
+  &-content {
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-25%, -50%);
+
+    .templatename {
+      position: relative;
+    }
+
+    .name {
+      display: block;
+      min-width: 120px;
+      border-top: 5px solid #333;
+      border-bottom: 5px solid #333;
+      background: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      white-space: nowrap;
+      transform: translate(-50%, -50%);
+      font-size: 36px;
+      text-transform: uppercase;
+    }
   }
 
   .wish {
-    font-size: 36px;
+    max-width: 300px;
+    font-size: 24px;
+    text-transform: uppercase;
   }
 
   .template {
-    font-size: 120px;
+    font-size: 250px;
+    line-height: 250px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+  }
+}
+
+.product-cup {
+  background: url(../images/product-cup-background.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.product-beer {
+  background: url(../images/product-beer-background.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.product-whiskey {
+  background: url(../images/product-whiskey-background.jpg) center center no-repeat;
+  background-size: cover;
+
+  .product-content {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.product-wine {
+  background: url(../images/product-wine-background.jpg) center center no-repeat;
+  background-size: cover;
+
+  .product-content {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.go-to-order {
+  text-align: center;
+
+  .price {
+    font-size: 48px;
+  }
+
+  .buy-button {
+    a {
+      display: block;
+      max-width: 200px;
+      background: #36c;
+      height: 50px;
+      line-height: 50px;
+      padding: 0 20px;
+      border-radius: 25px;
+      margin: 0 auto;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
   }
 }
 

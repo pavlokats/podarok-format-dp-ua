@@ -1,3 +1,5 @@
+@import "../colors.scss";
+
 .section-sites {
   ul {
     display: flex;
@@ -9,13 +11,15 @@
     li {
       width: 100%;
       padding-bottom: 20px;
+      text-align: center;
 
       @media all and (min-width: 768px) {
         width: 33.33%;
       }
 
       a {
-        color: #06c;
+        display: inline-block;
+        color: $sitesListLinkColor;
 
         .site-image {
           display: block;

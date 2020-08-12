@@ -1,6 +1,8 @@
+@import "../colors.scss";
+
 .section-howtoorder {
-  color: #fff;
-  background-image: linear-gradient(to right, #5eb1f3, #7ec17e);
+  color: $howtoorderTextColor;
+  background-image: linear-gradient(to right, $howtoorderBackgroundFrom, $howtoorderBackgroundTo);
 
   .order-steps {
     display: flex;
