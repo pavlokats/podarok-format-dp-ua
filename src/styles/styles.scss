@@ -68,33 +68,33 @@ h2 {
       position: relative;
     }
 
-    .name {
+    .template-name {
       display: block;
-      min-width: 120px;
-      border-top: 5px solid #333;
-      border-bottom: 5px solid #333;
-      background: #fff;
+      width: 100%;
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 28%;
+      height: 16%;
+      left: 0;
       white-space: nowrap;
-      transform: translate(-50%, -50%);
       font-size: 36px;
+      text-transform: uppercase;
+    }
+
+    .template-wish {
+      position: absolute;
+      top: 70%;
+      left: 0;
+      width: 100%;
+      font-size: 24px;
       text-transform: uppercase;
     }
   }
 
-  .wish {
-    max-width: 300px;
-    font-size: 24px;
-    text-transform: uppercase;
-  }
-
   .template {
-    font-size: 250px;
-    line-height: 250px;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
 
@@ -106,6 +106,16 @@ h2 {
 .product-beer {
   background: url(../images/product-beer-background.jpg) center center no-repeat;
   background-size: cover;
+
+  .template-image {
+    opacity: 0.75;
+  }
+
+  .template-name,
+  .template-wish {
+    color: #fff;
+    opacity: 0.75;
+  }
 }
 
 .product-whiskey {
@@ -115,6 +125,16 @@ h2 {
   .product-content {
     transform: translate(-50%, -50%);
   }
+
+  .template-image {
+    opacity: 0.75;
+  }
+
+  .template-name,
+  .template-wish {
+    color: #fff;
+    opacity: 0.75;
+  }
 }
 
 .product-wine {
@@ -123,6 +143,16 @@ h2 {
 
   .product-content {
     transform: translate(-50%, -50%);
+  }
+
+  .template-image {
+    opacity: 0.75;
+  }
+
+  .template-name,
+  .template-wish {
+    color: #fff;
+    opacity: 0.75;
   }
 }
 

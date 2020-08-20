@@ -12,7 +12,15 @@ import $ from 'jquery';
     let nameInput = $('#nameinput'),
         nameOutput = $('#nameoutput'),
         wishInput = $('#wishinput'),
-        wishOutput = $('#wishoutput');
+        wishOutput = $('#wishoutput'),
+        svgColor = $('#svgcolorvalue').val(),
+        lettersArray = [];
+
+    for (let i = 0, lettersCount = 43; i < lettersCount; i += 1) {
+      lettersArray.push('letter-' + i);
+    }
+
+    console.log(lettersArray);
 
     $("a.scrollto").on("click",function(a){
       if("" !== this.hash) {
@@ -36,7 +44,9 @@ import $ from 'jquery';
     });
 
     $('#select-letter').change(function() {
-      $('#templateoutput').html($('#select-letter option:selected').html());
+      let selectedValue = $('#select-letter option:selected').val();
+      let imageLink = 'images/letters/default-' + svgColor + '/' + lettersArray[selectedValue] + '.svg';
+      $("#templateoutput img").attr("src", imageLink);
     });
 
     $('#select-number').change(function() {
