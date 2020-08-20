@@ -22,7 +22,6 @@ import $ from 'jquery';
       }
     });
 
-
     $('#select-template').change(function() {
       switch ($('#select-template option:selected').val()) {
         case '1': $('.select-letter-container').show();
