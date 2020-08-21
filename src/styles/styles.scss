@@ -34,14 +34,20 @@ h2 {
 .product-page-layout {
   display: flex;
   flex-flow: row nowrap;
+  max-width: 1170px;
+  margin: 0 auto;
 
   .content {
-    width: calc(100% - 400px);
+    width: calc(100% - 300px);
   }
 
   .sidebar {
-    width: 400px;
+    width: 300px;
     border-left: 1px solid $sidebarBorderColor;
+
+    &-inner {
+      padding: 20px;
+    }
 
     form {
       display: flex;
