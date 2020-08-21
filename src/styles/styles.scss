@@ -104,9 +104,52 @@ h2 {
   }
 }
 
-.product-cup {
-  background: url(../images/product-cup-background.jpg) center center no-repeat;
+.product__cup {
   background-size: cover;
+
+  &-white {
+    background: url(../images/product-cup-white-background.jpg) center center no-repeat;
+  }
+
+  &-black {
+    background: url(../images/product-cup-black-background.jpg) center center no-repeat;
+  }
+
+  &-blue {
+    background: url(../images/product-cup-blue-background.jpg) center center no-repeat;
+  }
+
+  &-lightblue {
+    background: url(../images/product-cup-lightblue-background.jpg) center center no-repeat;
+  }
+
+  &-burgundy {
+    background: url(../images/product-cup-burgundy-background.jpg) center center no-repeat;
+  }
+
+  &-green {
+    background: url(../images/product-cup-green-background.jpg) center center no-repeat;
+  }
+
+  &-lightgreen {
+    background: url(../images/product-cup-lightgreen-background.jpg) center center no-repeat;
+  }
+
+  &-orange {
+    background: url(../images/product-cup-orange-background.jpg) center center no-repeat;
+  }
+
+  &-pink {
+    background: url(../images/product-cup-pink-background.jpg) center center no-repeat;
+  }
+
+  &-red {
+    background: url(../images/product-cup-red-background.jpg) center center no-repeat;
+  }
+
+  &-yellow {
+    background: url(../images/product-cup-yellow-background.jpg) center center no-repeat;
+  }
 }
 
 .product-beer {

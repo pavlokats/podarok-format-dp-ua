@@ -43,6 +43,22 @@ import $ from 'jquery';
       }
     });
 
+    $('input[type=radio][name=cup-color]').change(function() {
+      let selectedItem = $("input[type=radio][name=cup-color]:checked");
+      let selectedColor = selectedItem.val();
+      let cupBackgroundClass = 'product__cup-' + selectedColor;
+      $("#product-cup-image").removeAttr('class');
+      $("#product-cup-image").attr('class', '');
+      $('#product-cup-image')[0].className = '';
+      $('#product-cup-image').addClass('product').addClass(cupBackgroundClass);
+      if(selectedItem.hasClass('cup-color-radio-color')) {
+        $('#price-value').html('150');
+      } else {
+        $('#price-value').html('120');
+      }
+      
+  });
+
     $('#select-letter').change(function() {
       let selectedValue = $('#select-letter option:selected').val();
       let imageLink = 'images/letters/default-' + svgColor + '/' + lettersArray[selectedValue] + '.svg';

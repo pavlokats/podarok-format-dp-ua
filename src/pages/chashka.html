@@ -36,7 +36,7 @@
         <div class="description">
           <p>Не знаете что подарить другу, подруге, родственнику или сотруднику? Предлагаем вам воспользоваться конструктором подарка с нанесением изображения на пивную кружку, винный бокал, чашку, стакан для виски.</p>
         </div>
-        <div class="product product-cup">
+        <div id="product-cup-image" class="product product__cup-white">
           <div class="product-content">
             <div class="templatename">
               <div id="templateoutput" class="template"><img class="template-image" src="images/letters/default-black/letter-0.svg"></div>
@@ -166,15 +166,57 @@
             </div>
             <div>
               <div class="form-group">
-                <label for="color">Цвет ручки и внутри:</label>
-                <select name="color">
-                  <option>Белый</option>
-                </select>
+                <span>Цвет ручки и внутри:</span>
+                <div class="radio">
+                  <input class="cup-color-radio cup-color-radio-white" type="radio" id="cup-color-white" name="cup-color" value="white" checked>
+                  <label for="cup-color-white">Белый</label>
+                </div>
+                <div class="radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-black" name="cup-color" value="black">
+                  <label for="cup-color-black">Черный</label>
+                </div>
+                <div class="radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-blue" name="cup-color" value="blue">
+                  <label for="cup-color-blue">Синий</label>
+                </div>
+                <div class="radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-lightblue" name="cup-color" value="lightblue">
+                  <label for="cup-color-lightblue">Голубой</label>
+                </div>
+                <div class="radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-burgundy" name="cup-color" value="burgundy">
+                  <label for="cup-color-burgundy">Бордовый</label>
+                </div>
+                <div class="radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-green" name="cup-color" value="green">
+                  <label for="cup-color-green">Зеленый</label>
+                </div>
+                <div class="radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-lightgreen" name="cup-color" value="lightgreen">
+                  <label for="cup-color-lightgreen">Салатовый</label>
+                </div>
+                <div class="radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-orange" name="cup-color" value="orange">
+                  <label for="cup-color-orange">Оранжевый</label>
+                </div>
+                <div class="radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-pink" name="cup-color" value="pink">
+                  <label for="cup-color-pink">Розовый</label>
+                </div>
+                <div class="radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-red" name="cup-color" value="red">
+                  <label for="cup-color-red">Красный</label>
+                </div>
+                <div class="radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-yellow" name="cup-color" value="yellow">
+                  <label for="cup-color-yellow">Желтый</label>
+                </div>
+
               </div>
             </div>
           </form>
           <div class="go-to-order">
-            <div class="price">120 грн</div>
+            <div class="price"><span id="price-value">120</span> грн</div>
             <div class="buy-button">
               <a href="#">Заказать</a>
             </div>
