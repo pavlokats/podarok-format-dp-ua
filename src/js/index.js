@@ -20,7 +20,20 @@ import $ from 'jquery';
       lettersArray.push('letter-' + i);
     }
 
-    console.log(lettersArray);
+    function productResponsivity() {
+      let productWidth = $('.product').width();
+      let nameFontSize = productWidth / 22.22;
+      let wishFontSize = productWidth / 33.33;
+      $('.product').height(productWidth);
+      $('.template-name').css('font-size', nameFontSize);
+      $('.template-wish').css('font-size', wishFontSize);
+    }
+
+    productResponsivity();
+
+    $(window).resize(function(){
+      productResponsivity();      
+    });
 
     $("a.scrollto").on("click",function(a){
       if("" !== this.hash) {
