@@ -1,0 +1,27 @@
+@import "colors.scss";
+
+@mixin cup-image($color) {
+  background: url(@/images/product-cup-#{$color}-background.jpg) center center no-repeat;
+  background-size: cover;
+  transition: all 0.5s;
+}
+
+@mixin page-banner($page) {
+  background: $bannerBackgroundColor url(@/images/#{$page}-banner.jpg) center center no-repeat;
+}
+
+@mixin glass-image($type) {
+  background: url(@/images/product-#{$type}-background.jpg) center center no-repeat;
+  background-size: cover;
+  transition: all 0.5s;
+
+  .template-image {
+    opacity: 0.75;
+  }
+
+  .template-name,
+  .template-wish {
+    color: $productGlassTextColor;
+    opacity: 0.75;
+  }
+}

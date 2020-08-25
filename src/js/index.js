@@ -4,6 +4,7 @@ import '@/styles/components/header.scss';
 import '@/styles/components/section-productlist.scss';
 import '@/styles/components/section-howtoorder.scss';
 import '@/styles/components/section-sites.scss';
+import '@/styles/components/application.scss';
 import '@/styles/components/footer.scss';
 import $ from 'jquery';
 
@@ -59,17 +60,16 @@ import $ from 'jquery';
     $('input[type=radio][name=cup-color]').change(function() {
       let selectedItem = $("input[type=radio][name=cup-color]:checked");
       let selectedColor = selectedItem.val();
-      let cupBackgroundClass = 'product__cup-' + selectedColor;
+      let cupBackgroundClass = 'product__cup_' + selectedColor;
       $("#product-cup-image").removeAttr('class');
       $("#product-cup-image").attr('class', '');
       $('#product-cup-image')[0].className = '';
-      $('#product-cup-image').addClass('product').addClass(cupBackgroundClass);
+      $('#product-cup-image').addClass('product').addClass('product__cup').addClass(cupBackgroundClass);
       if(selectedItem.hasClass('cup-color-radio-color')) {
         $('#price-value').html('150');
       } else {
         $('#price-value').html('120');
       }
-      
   });
 
     $('#select-letter').change(function() {

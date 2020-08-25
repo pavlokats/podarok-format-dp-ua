@@ -1,0 +1,284 @@
+@import "../colors.scss";
+@import "../mixins.scss";
+
+.section-application {
+  display: flex;
+  flex-flow: column;
+  max-width: 1170px;
+  margin: 0 auto;
+
+  @media all and (min-width: 768px) {
+    flex-flow: row nowrap;
+  }
+
+  .content {
+    width: 100%;
+
+    @media all and (min-width: 768px) {
+      width: calc(100% - 300px);
+    }
+  }
+
+  .sidebar {
+    width: 100%;
+
+    @media all and (min-width: 768px) {
+      width: 300px;
+      border-left: 1px solid $sidebarBorderColor;
+    }
+
+    &-inner {
+      padding: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-flow: column;
+    }
+  }
+}
+
+.product-content {
+  width: 38%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  .templatename {
+    position: relative;
+  }
+
+  .template-name {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 28%;
+    height: 16%;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 36px;
+    text-transform: uppercase;
+  }
+
+  .template-wish {
+    position: absolute;
+    top: 70%;
+    left: 0;
+    width: 100%;
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+}
+
+.product-beer {
+  @include glass-image("beer");
+
+  .product-content {
+    transform: translate(-25%, -50%);
+  }
+}
+
+.product-whiskey {
+  @include glass-image("whiskey");
+
+  .product-content {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.product-wine {
+  @include glass-image("wine");
+
+  .product-content {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.product__cup {
+  .product-content {
+    transform: translate(-25%, -50%);
+  }
+
+  &_white {
+    @include cup-image("white");
+  }
+
+  &_black {
+    @include cup-image("black");
+  }
+
+  &_blue {
+    @include cup-image("blue");
+  }
+
+  &_lightblue {
+    @include cup-image("lightblue");
+  }
+
+  &_burgundy {
+    @include cup-image("burgundy");
+  }
+
+  &_green {
+    @include cup-image("green");
+  }
+
+  &_lightgreen {
+    @include cup-image("lightgreen");
+  }
+
+  &_orange {
+    @include cup-image("orange");
+  }
+
+  &_pink {
+    @include cup-image("pink");
+  }
+
+  &_red {
+    @include cup-image("red");
+  }
+
+  &_yellow {
+    @include cup-image("yellow");
+  }
+}
+
+.products-container {
+  .products-description {
+    padding: 50px 20px;
+    max-width: 1170px;
+    margin: 0 auto;
+  }
+}
+
+.product {
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+
+  .template {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.go-to-order {
+  text-align: center;
+
+  .price {
+    font-size: 48px;
+  }
+
+  .buy-button {
+    a {
+      display: block;
+      max-width: 200px;
+      color: $buyButtonColor;
+      background: $buyButtonBackgroundColor;
+      height: 50px;
+      line-height: 50px;
+      padding: 0 20px;
+      border-radius: 25px;
+      margin: 0 auto;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+  }
+}
+
+.constructor-form {
+  .form-group {
+    display: flex;
+    flex-flow: column;
+  }
+
+  .select-template-form {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  .select-number-container {
+    display: none;
+  }
+}
+
+.cup-color-changer {
+  display: flex;
+  flex-flow: row wrap;
+
+  &-radio {
+    width: 25%;
+  }
+}
+
+input[type="radio"] {
+  display: none;
+
+  &:checked + label {
+    transform: scale(1.25);
+  }
+}
+
+.label-cup-color {
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-indent: -1000px;
+  overflow: hidden;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
+
+  &-white {
+    background: $labelColorWhite;
+  }
+
+  &-black {
+    background: $labelColorBlack;
+  }
+
+  &-blue {
+    background: $labelColorBlue;
+  }
+
+  &-lightblue {
+    background: $labelColorLightblue;
+  }
+
+  &-burgundy {
+    background: $labelColorBurgundy;
+  }
+
+  &-green {
+    background: $labelColorGreen;
+  }
+
+  &-lightgreen {
+    background: $labelColorLightgreen;
+  }
+
+  &-orange {
+    background: $labelColorOrange;
+  }
+
+  &-pink {
+    background: $labelColorPink;
+  }
+
+  &-red {
+    background: $labelColorRed;
+  }
+
+  &-yellow {
+    background: $labelColorYellow;
+  }
+}

@@ -14,7 +14,7 @@
     }
   }
 
-  &-map {
+  &__map {
     background: $footerMapBackgroundColor;
 
     iframe {
@@ -24,7 +24,7 @@
     }
   }
 
-  &-inner {
+  &__inner {
     padding-top: 50px;
     display: flex;
     flex-flow: row wrap;
@@ -32,56 +32,54 @@
     margin: 0 auto;
   }
 
-  &-hours,
-  &-address,
-  &-phones {
+  &__item {
     width: 100%;
 
     @media all and (min-width: 768px) {
       width: 33.33%;
     }
+
+    &-content {
+      padding: 20px;
+      text-align: center;
+
+      @media all and (min-width: 768px) {
+        text-align: left;
+      }
+
+      h4 {
+        margin-bottom: 20px;
+        font-size: 150%;
+        font-weight: 400;
+      }
+
+      p {
+        line-height: 1.25;
+        font-size: 90%;
+
+        @media all and (min-width: 768px) {
+          font-size: 100%;
+        }
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        line-height: 1.25;
+        font-size: 90%;
+
+        @media all and (min-width: 768px) {
+          font-size: 100%;
+        }
+      }
+    }
   }
 
-  &-politics,
-  &-creator {
+  &__politics,
+  &__creator {
     width: 100%;
     padding-top: 30px;
     text-align: center;
-  }
-
-  &-contacts-inner {
-    padding: 20px;
-    text-align: center;
-
-    @media all and (min-width: 768px) {
-      text-align: left;
-    }
-
-    h4 {
-      margin-bottom: 20px;
-      font-size: 150%;
-      font-weight: 400;
-    }
-
-    p {
-      line-height: 1.25;
-      font-size: 90%;
-
-      @media all and (min-width: 768px) {
-        font-size: 100%;
-      }
-    }
-
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-      line-height: 1.25;
-      font-size: 90%;
-
-      @media all and (min-width: 768px) {
-        font-size: 100%;
-      }
-    }
   }
 }

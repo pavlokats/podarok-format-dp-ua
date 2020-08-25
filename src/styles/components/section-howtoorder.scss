@@ -4,23 +4,23 @@
   color: $howtoorderTextColor;
   background-image: linear-gradient(to right, $howtoorderBackgroundFrom, $howtoorderBackgroundTo);
 
-  .order-steps {
+  &__order-steps {
     display: flex;
     flex-flow: row wrap;
     padding: 20px 0;
+  }
 
-    &-item {
-      width: 100%;
-      text-align: center;
-      padding: 20px 0;
+  &__order-step {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
 
-      @media all and (min-width: 480px) {
-        width: 50%;
-      }
+    @media all and (min-width: 480px) {
+      width: 50%;
+    }
 
-      @media all and (min-width: 768px) {
-        width: 33.33%;
-      }
+    @media all and (min-width: 768px) {
+      width: 33.33%;
     }
 
     img {
@@ -34,6 +34,10 @@
       font-size: 100%;
       line-height: 1.25;
       margin: 10px 0 20px;
+    }
+
+    p {
+      margin: 0 10px 20px;
     }
   }
 }

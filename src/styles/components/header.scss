@@ -1,7 +1,8 @@
 @import "../colors.scss";
+@import "../mixins.scss";
 
 .header {
-  &-inner {
+  &__inner {
     display: flex;
     flex-flow: column;
     max-width: 1170px;
@@ -14,109 +15,113 @@
       justify-content: space-between;
       height: 60px;
     }
+  }
 
-    .logo {
-      padding-top: 10px;
+  &__logo {
+    padding-top: 10px;
 
-      img {
-        display: block;
-        width: 178px;
-        height: 39px;
-        margin: 0 auto;
-        padding-bottom: 10px;
+    img {
+      display: block;
+      width: 178px;
+      height: 39px;
+      margin: 0 auto;
+      padding-bottom: 10px;
 
-        @media all and (min-width: 480px) {
-          margin: 0;
-          padding-bottom: 0;
-        }
-      }
-    }
-
-    .phone {
-      padding-top: 10px;
-
-      ul {
-        list-style-type: none;
+      @media all and (min-width: 480px) {
         margin: 0;
-        padding: 0;
-        text-align: center;
-        line-height: 20px;
-        white-space: nowrap;
-        padding-bottom: 10px;
-
-        @media all and (min-width: 480px) {
-          text-align: left;
-          padding-bottom: 0;
-        }
+        padding-bottom: 0;
       }
     }
   }
 
-  &-banner-home {
-    background: $bannerBackgroundColor url(../../images/homepage-banner.jpg) center center no-repeat;
+  &__phone {
+    padding-top: 10px;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      line-height: 20px;
+      white-space: nowrap;
+      padding-bottom: 10px;
+
+      @media all and (min-width: 480px) {
+        text-align: left;
+        padding-bottom: 0;
+      }
+
+      li {
+        font-family: 'Roboto Slab', serif;
+      }
+    }
   }
 
-  &-banner-beer {
-    background: $bannerBackgroundColor url(../../images/beer-banner.jpg) center center no-repeat;
-  }
-
-  &-banner-whiskey {
-    background: $bannerBackgroundColor url(../../images/whiskey-banner.jpg) center center no-repeat;
-  }
-
-  &-banner-wine {
-    background: $bannerBackgroundColor url(../../images/wine-banner.jpg) center center no-repeat;
-  }
-
-  &-banner-cup {
-    background: $bannerBackgroundColor url(../../images/teamug-banner.jpg) center center no-repeat;
-  }
-
-  &-banner {
+  &__banner {
     background-size: cover;
 
-    .banner-inner {
+    &-content {
       display: flex;
       max-width: 1170px;
       margin: 0 auto;
       padding: 50px 20px;
+    }
 
-      .banner-content-left {
-        width: 100%;
-        text-align: center;
+    &-text {
+      width: 100%;
+      text-align: center;
 
-        @media all and (min-width: 768px) {
-          width: 50%;
-          text-align: left;
-        }
+      @media all and (min-width: 768px) {
+        width: 50%;
+        text-align: left;
+      }
 
-        h1 {
-          color: $bannerTextColor;
-          font-size: 200%;
-        }
+      h1 {
+        color: $bannerTextColor;
+        font-size: 200%;
+      }
 
-        p {
-          color: $bannerTextColor;
-          font-size: 120%;
-          padding: 20px 0;
-        }
+      p {
+        color: $bannerTextColor;
+        font-size: 120%;
+        padding: 20px 0;
+      }
 
-        .button {
-          display: inline-block;
-          height: 50px;
-          line-height: 50px;
-          padding: 0 20px;
-          color: $bannerButtonColor;
-          background: $bannerButtonBackgroundColor;
-          text-decoration: none;
-          border-radius: 3px;
-          white-space: nowrap;
+      .button {
+        display: inline-block;
+        height: 50px;
+        line-height: 50px;
+        padding: 0 20px;
+        color: $bannerButtonColor;
+        background: $bannerButtonBackgroundColor;
+        text-decoration: none;
+        border-radius: 3px;
+        white-space: nowrap;
 
-          &:hover {
-            background: $bannerButtonHoverBackgroundColor;
-          }
+        &:hover {
+          background: $bannerButtonHoverBackgroundColor;
         }
       }
+    }
+
+    &_home {
+      @include page-banner("homepage");
+    }
+
+    &_beer {
+      @include page-banner("beer");
+    }
+
+    &_whiskey {
+      @include page-banner("whiskey");
+    }
+
+    &_wine {
+      @include page-banner("wine");
+    }
+
+    &_cup {
+      @include page-banner("teamug");
     }
   }
 }

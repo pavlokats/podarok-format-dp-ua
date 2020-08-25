@@ -1,4 +1,5 @@
-$color: #333;
+$defaultFontColor: #333;
+$defaultBackgroundColor: #fff;
 
 $bannerBackgroundColor: #000;
 $bannerTextColor: #fff;
@@ -11,6 +12,10 @@ $productListItemWhiskeyBackgroundColor: #666;
 $productListItemWineBackgroundColor: #999;
 $productListItemCupBackgroundColor: #ccc;
 
+$productListTitleColor: #06c;
+
+$productGlassTextColor: #fff;
+
 $sidebarBorderColor: #f0f0f0;
 
 $howtoorderTextColor: #fff;
@@ -18,9 +23,25 @@ $howtoorderBackgroundFrom: #5eb1f3;
 $howtoorderBackgroundTo: #7ec17e;
 
 $sitesListLinkColor: #06c;
+$sitesListLinkHoverColor: #c63;
 
 $footerBackgroundColor: #444;
 $footerMapBackgroundColor: #f2f3f4;
 $footerTextColor: #fff;
 $footerLinkColor: #ccc;
 $footerLinkHoverColor: #fff;
+
+$labelColorWhite: #fff;
+$labelColorBlack: #000;
+$labelColorBlue: #039;
+$labelColorLightblue: #09f;
+$labelColorBurgundy: #600;
+$labelColorGreen: #063;
+$labelColorLightgreen: #6c6;
+$labelColorOrange: #f93;
+$labelColorPink: #f9c;
+$labelColorRed: #f33;
+$labelColorYellow: #fc6;
+
+$buyButtonColor: #fff;
+$buyButtonBackgroundColor: #36c;
