@@ -1,6 +1,7 @@
 {
   "name": "letter-format-dp-ua",
   "version": "1.0.0",
+  "private": true,
   "description": "",
   "main": "index.js",
   "scripts": {

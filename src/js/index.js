@@ -15,95 +15,116 @@ import $ from 'jquery';
         wishInput = $('#wishinput'),
         wishOutput = $('#wishoutput'),
         svgColor = $('#svgcolorvalue').val(),
-        lettersArray = [];
+        selectedValue,
+        imageLink,
+        lettersArray = [],
+        numbersArray = [],
+        useArray;
 
-    for (let i = 0, lettersCount = 43; i < lettersCount; i += 1) {
-      lettersArray.push('letter-' + i);
-    }
-
-    function productResponsivity() {
-      let productWidth = $('.product').width();
-      let nameFontSize = productWidth / 22.22;
-      let wishFontSize = productWidth / 33.33;
-      $('.product').height(productWidth);
-      $('.template-name').css('font-size', nameFontSize);
-      $('.template-wish').css('font-size', wishFontSize);
-    }
-
-    productResponsivity();
-
-    $(window).resize(function(){
-      productResponsivity();      
-    });
-
-    $("a.scrollto").on("click",function(a){
-      if("" !== this.hash) {
-        a.preventDefault();
-        var b = this.hash;
-        $("html, body").animate({ scrollTop: $(b).offset().top - 0 }, 800, function(){});
-      }
-    });
-
-    $('#select-template').change(function() {
-      switch ($('#select-template option:selected').val()) {
-        case '1': $('.select-letter-container').show();
-                  $('.select-number-container').hide();
-                  $('#templateoutput').html($('#select-letter option:selected').html());
-          break;
-        case '2': $('.select-letter-container').hide();
-                  $('.select-number-container').show();
-                  $('#templateoutput').html($('#select-number option:selected').html());
-          break;
-      }
-    });
-
-    $('input[type=radio][name=cup-color]').change(function() {
-      let selectedItem = $("input[type=radio][name=cup-color]:checked");
-      let selectedColor = selectedItem.val();
-      let cupBackgroundClass = 'product__cup_' + selectedColor;
-      $("#product-cup-image").removeAttr('class');
-      $("#product-cup-image").attr('class', '');
-      $('#product-cup-image')[0].className = '';
-      $('#product-cup-image').addClass('product').addClass('product__cup').addClass(cupBackgroundClass);
-      if(selectedItem.hasClass('cup-color-radio-color')) {
-        $('#price-value').html('150');
-      } else {
-        $('#price-value').html('120');
-      }
-  });
-
-    $('#select-letter').change(function() {
-      let selectedValue = $('#select-letter option:selected').val();
-      let imageLink = 'images/letters/default-' + svgColor + '/' + lettersArray[selectedValue] + '.svg';
-      $("#templateoutput img").attr("src", imageLink);
-    });
-
-    $('#select-number').change(function() {
-      $('#templateoutput').html($('#select-number option:selected').html());
-    });
-
-    function emptyInputsCheck(itemInput, itemOutput) {
-      if (itemInput.val() == '') {
-        switch(itemOutput) {
-          case nameOutput: itemOutput.html("Введите имя");
+    let app = {
+      selectTemplate() {
+        switch ($('#select-template option:selected').val()) {
+          case '1': $('.select-letter-container').show();
+                    $('.select-number-container').hide();
+                    $('#select-letter option[value="0"]').prop("selected", true);
+                    app.selectSymbol("letter", true);
             break;
-          case wishOutput: itemOutput.html("Ваше пожелание");
+          case '2': $('.select-letter-container').hide();
+                    $('.select-number-container').show();
+                    $('#select-number option[value="1"]').prop("selected", true);
+                    app.selectSymbol("number", true);
             break;
+        }
+      },
+      fillArray(arrayName, classPrefix, from, to) {
+        for (let i = from, max = to; i < max; i += 1) {
+          arrayName.push(classPrefix + '-' + i);
+        }
+      },
+      selectSymbol(symbolType, reset) {
+        let folderName;
+        if (symbolType === "letter") {
+          folderName = "letters";
+          useArray = lettersArray;
+        } else if (symbolType === "number") {
+          folderName = "numbers";
+          useArray = numbersArray;
+        } else {
+          return;
+        }
+
+        if(reset) {
+          selectedValue = 0;
+        }
+
+        selectedValue = $('#select-' + symbolType + ' option:selected').val();
+        imageLink = 'images/' + folderName + '/default-' + svgColor + '/' + useArray[selectedValue] + '.svg';
+        $("#templateoutput img").prop("src", imageLink);
+      },
+      selectColor() {
+        let selectedItem = $("input[type=radio][name=cup-color]:checked");
+        let selectedColor = selectedItem.val();
+        let cupBackgroundClass = 'product__cup_' + selectedColor;
+        $("#product-cup-image").removeAttr('class');
+        $("#product-cup-image").prop('class', '');
+        $('#product-cup-image')[0].className = '';
+        $('#product-cup-image').addClass('product').addClass('product__cup').addClass(cupBackgroundClass);
+        if(selectedItem.hasClass('cup-color-radio-color')) {
+          $('#price-value').html('150');
+        } else {
+          $('#price-value').html('120');
+        }
+      },
+      changeSize() {
+        let productWidth = $('.product').width(),
+            nameFontSize = productWidth / 22.22,
+            wishFontSize = productWidth / 33.33;
+        $('.product').height(productWidth);
+        $('.template-name').css('font-size', nameFontSize);
+        $('.template-wish').css('font-size', wishFontSize);
+      },
+      emptyInputsCheck(itemInput, itemOutput) {
+        if (itemInput.val() == '') {
+          switch(itemOutput) {
+            case nameOutput: itemOutput.html("Введите имя");
+              break;
+            case wishOutput: itemOutput.html("Ваше пожелание");
+              break;
+          }
         }
       }
     }
 
-    emptyInputsCheck(nameInput, nameOutput);
-    emptyInputsCheck(wishInput, wishOutput);
+    app.fillArray(lettersArray, "letter", 0, 43);
+    app.fillArray(numbersArray, "number", 0, 80);
+
+    app.changeSize();
+    $(window).resize(app.changeSize);
+
+    $("a.scrollto").on("click",function(a){
+      if("" !== this.hash) {
+        a.preventDefault();
+        let b = this.hash;
+        $("html, body").animate({ scrollTop: $(b).offset().top - 0 }, 800, function(){});
+      }
+    });
+
+    $('#select-template').change(app.selectTemplate);
+    $('#select-letter').change(function(){app.selectSymbol("letter")});
+    $('#select-number').change(function(){app.selectSymbol("number")});
+    $('input[type=radio][name=cup-color]').change(app.selectColor);
+
+    app.emptyInputsCheck(nameInput, nameOutput);
+    app.emptyInputsCheck(wishInput, wishOutput);
 
     nameInput.keyup(function() { 
       nameOutput.html(nameInput.val());
-      emptyInputsCheck(nameInput, nameOutput);
+      app.emptyInputsCheck(nameInput, nameOutput);
     });
 
     wishInput.keyup(function() { 
       wishOutput.html(wishInput.val());
-      emptyInputsCheck(wishInput, wishOutput);
+      app.emptyInputsCheck(wishInput, wishOutput);
     });
   });
 })();
