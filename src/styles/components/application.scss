@@ -21,9 +21,11 @@
 
   .sidebar {
     width: 100%;
+    border-top: 1px solid $sidebarBorderColor;
 
     @media all and (min-width: 768px) {
       width: 300px;
+      border-top: 0;
       border-left: 1px solid $sidebarBorderColor;
     }
 
@@ -216,6 +218,7 @@
 
   &-radio {
     width: 25%;
+    padding: 10px 0;
   }
 }
 
@@ -229,14 +232,16 @@ input[type="radio"] {
 
 .label-cup-color {
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 42px;
+  height: 42px;
   text-indent: -1000px;
   overflow: hidden;
   border-radius: 50%;
   -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
+  margin: 0 auto;
+  cursor: pointer;
 
   &-white {
     background: $labelColorWhite;

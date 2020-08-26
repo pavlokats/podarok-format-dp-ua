@@ -96,7 +96,7 @@ import $ from 'jquery';
     }
 
     app.fillArray(lettersArray, "letter", 0, 43);
-    app.fillArray(numbersArray, "number", 0, 80);
+    app.fillArray(numbersArray, "number", 0, 81);
 
     app.changeSize();
     $(window).resize(app.changeSize);
