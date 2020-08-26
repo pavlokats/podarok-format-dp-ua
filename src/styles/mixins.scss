@@ -15,13 +15,8 @@
   background-size: cover;
   transition: all 0.5s;
 
-  .template-image {
-    opacity: 0.75;
-  }
-
   .template-name,
   .template-wish {
     color: $productGlassTextColor;
-    opacity: 0.75;
   }
 }

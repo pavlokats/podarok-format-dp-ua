@@ -38,7 +38,9 @@
           <div class="product-image product-image-beer">
             <div class="product-content">
               <div class="templatename">
-                <div id="templateoutput" class="template"><img class="template-image" src="images/letters/default-white/letter-0.svg"></div>
+                <div id="templateoutput" class="template">
+                  <img class="style-image" src="images/styles/default-white.svg">
+                  <img class="template-image" src="images/letters/white/letter-0.svg"></div>
                 <div id="nameoutput" class="template-name">Введите имя</div>
                 <div id="wishoutput" class="template-wish">Ваше пожелание</div>
               </div>
@@ -56,13 +58,13 @@
             <div class="form-group">
               <label for="producttype">Выберите шаблон:</label>
               <div class="select-template-form">
-                <div class="select-template-container">
+                <div class="select-container select-template-container">
                   <select id="select-template" name="template">
                     <option value="1">Буква</option>
                     <option value="2">Число</option>
                   </select>
                 </div>
-                <div class="select-letter-container">
+                <div class="select-container select-letter-container">
                   <select id="select-letter">
                     <option value="0">А</option>
                     <option value="1">Б</option>
@@ -109,7 +111,7 @@
                     <option value="42">Z</option>
                   </select>
                 </div>
-                <div class="select-number-container">
+                <div class="select-container select-number-container">
                   <select id="select-number">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -195,26 +197,23 @@
                 </div>
               </div>
             </div>
-            <div>
-              <div class="form-group">
-                <label for="name">Имя:</label>
-                <input type="text" name="name" id="nameinput">
-              </div>
+
+            <div class="form-group">
+              <div class="countered-label"><label for="name">Имя:</label><span id="name-counter"></span></div>
+              <input type="text" name="name" id="nameinput" maxlength="12">
             </div>
-            <div>
-              <div class="form-group">
-                <label for="wish">Ваше пожелание:</label>
-                <textarea name="wish" id="wishinput"></textarea>
-              </div>
+            <div class="form-group">
+              <div class="countered-label"><label for="wish">Ваше пожелание:</label><span id="wish-counter"></span></div>
+              <textarea name="wish" id="wishinput" maxlength="50" rows="3"></textarea>
             </div>
-            <div>
-              <div class="form-group">
-                <label for="reason">Ваше пожелание:</label>
+            <div class="form-group">
+              <label for="reason">Повод:</label>
+              <div class="select-container">
                 <select name="reason" id="select-reason">
-                  <option value="1">Просто так</option>
-                  <option value="2">День рождения</option>
-                  <option value="3">Юбилей</option>
-                  <option value="4">Новый год</option>
+                  <option value="default">Просто так</option>
+                  <option value="birthday">День рождения</option>
+                  <option value="jubilee">Юбилей</option>
+                  <option value="newyear">Новый год</option>
                 </select>
               </div>
             </div>

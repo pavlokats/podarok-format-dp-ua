@@ -15,23 +15,34 @@ import $ from 'jquery';
         wishInput = $('#wishinput'),
         wishOutput = $('#wishoutput'),
         svgColor = $('#svgcolorvalue').val(),
-        selectedValue,
+        templateStyle = 'default',
+        folderName = 'letters',
+        selectedValue = $('#select-letter option:selected').val(),
         imageLink,
         lettersArray = [],
         numbersArray = [],
-        useArray;
+        useArray = lettersArray,
+        nameCounter = $('#name-counter'),
+        wishCounter = $('#wish-counter'),
+        dropdownTemplate = $('#select-template'),
+        dropdownReason = $('#select-reason'),
+        dropdownLetter = $('#select-letter'),
+        dropdownNumber = $('#select-number'),
+        radioCupColor = $('input[type=radio][name=cup-color]');
 
     let app = {
+      maxNameCount: 12,
+      maxWishCount: 50,
       selectTemplate() {
         switch ($('#select-template option:selected').val()) {
           case '1': $('.select-letter-container').show();
                     $('.select-number-container').hide();
-                    $('#select-letter option[value="0"]').prop("selected", true);
+                    $('#select-letter option[value="0"]').prop('selected', true);
                     app.selectSymbol("letter", true);
             break;
           case '2': $('.select-letter-container').hide();
                     $('.select-number-container').show();
-                    $('#select-number option[value="1"]').prop("selected", true);
+                    $('#select-number option[value="1"]').prop('selected', true);
                     app.selectSymbol("number", true);
             break;
         }
@@ -41,28 +52,30 @@ import $ from 'jquery';
           arrayName.push(classPrefix + '-' + i);
         }
       },
+      selectStyle() {
+        templateStyle = $('#select-reason option:selected').val();
+        imageLink = 'images/styles/' + templateStyle + '-' + svgColor + '.svg';
+        $('#templateoutput .style-image').prop('src', imageLink);
+      },
       selectSymbol(symbolType, reset) {
-        let folderName;
-        if (symbolType === "letter") {
-          folderName = "letters";
+        if (symbolType === 'letter') {
+          folderName = 'letters';
           useArray = lettersArray;
-        } else if (symbolType === "number") {
-          folderName = "numbers";
+        } else if (symbolType === 'number') {
+          folderName = 'numbers';
           useArray = numbersArray;
         } else {
           return;
         }
-
         if(reset) {
           selectedValue = 0;
         }
-
         selectedValue = $('#select-' + symbolType + ' option:selected').val();
-        imageLink = 'images/' + folderName + '/default-' + svgColor + '/' + useArray[selectedValue] + '.svg';
-        $("#templateoutput img").prop("src", imageLink);
+        imageLink = 'images/' + folderName + '/' + svgColor + '/' + useArray[selectedValue] + '.svg';
+        $('#templateoutput .template-image').prop('src', imageLink);
       },
       selectColor() {
-        let selectedItem = $("input[type=radio][name=cup-color]:checked");
+        let selectedItem = $('input[type=radio][name=cup-color]:checked');
         let selectedColor = selectedItem.val();
         let cupBackgroundClass = 'product__cup_' + selectedColor;
         $("#product-cup-image").removeAttr('class');
@@ -86,45 +99,84 @@ import $ from 'jquery';
       emptyInputsCheck(itemInput, itemOutput) {
         if (itemInput.val() == '') {
           switch(itemOutput) {
-            case nameOutput: itemOutput.html("Введите имя");
+            case nameOutput: itemOutput.html('Введите имя');
               break;
-            case wishOutput: itemOutput.html("Ваше пожелание");
+            case wishOutput: itemOutput.html('Ваше пожелание');
               break;
           }
+        }
+      },
+      inputAction(inputType) {
+        if(inputType === 'name') {
+          nameOutput.html(nameInput.val());
+          app.emptyInputsCheck(nameInput, nameOutput);
+        } else if (inputType === 'wish') {
+          wishOutput.html(wishInput.val());
+          app.emptyInputsCheck(wishInput, wishOutput);
+        } else {
+          return;
+        }
+        app.getCount(inputType);
+      },
+      getCount(counter) {
+        if(counter === 'name') {
+          let count = this.maxNameCount - nameInput.val().length;
+          nameCounter.html(count);
+        } else if (counter === 'wish') {
+          let count = this.maxWishCount - wishInput.val().length;
+          wishCounter.html(count);
+        } else {
+          return;
         }
       }
     }
 
-    app.fillArray(lettersArray, "letter", 0, 43);
-    app.fillArray(numbersArray, "number", 0, 81);
+    app.fillArray(lettersArray, 'letter', 0, 43);
+    app.fillArray(numbersArray, 'number', 0, 81);
 
     app.changeSize();
     $(window).resize(app.changeSize);
 
-    $("a.scrollto").on("click",function(a){
-      if("" !== this.hash) {
+    $('a.scrollto').on('click',function(a){
+      if('' !== this.hash) {
         a.preventDefault();
         let b = this.hash;
-        $("html, body").animate({ scrollTop: $(b).offset().top - 0 }, 800, function(){});
+        $('html, body').animate({ scrollTop: $(b).offset().top - 0 }, 800, function(){});
       }
     });
 
-    $('#select-template').change(app.selectTemplate);
-    $('#select-letter').change(function(){app.selectSymbol("letter")});
-    $('#select-number').change(function(){app.selectSymbol("number")});
-    $('input[type=radio][name=cup-color]').change(app.selectColor);
+    dropdownTemplate.change(function() {
+      app.selectTemplate();
+    });
+
+    dropdownReason.change(function() {
+      app.selectStyle();
+    });
+
+    dropdownLetter.change(function() {
+      app.selectSymbol('letter');
+    });
+
+    dropdownNumber.change(function() {
+      app.selectSymbol('number');
+    });
+
+    radioCupColor.change(function() {
+      app.selectColor();
+    });
 
     app.emptyInputsCheck(nameInput, nameOutput);
     app.emptyInputsCheck(wishInput, wishOutput);
 
     nameInput.keyup(function() { 
-      nameOutput.html(nameInput.val());
-      app.emptyInputsCheck(nameInput, nameOutput);
+      app.inputAction('name');
     });
 
     wishInput.keyup(function() { 
-      wishOutput.html(wishInput.val());
-      app.emptyInputsCheck(wishInput, wishOutput);
+      app.inputAction('wish');
     });
+
+    nameCounter.html(app.maxNameCount);
+    wishCounter.html(app.maxWishCount);
   });
 })();

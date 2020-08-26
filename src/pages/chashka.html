@@ -37,7 +37,9 @@
         <div id="product-cup-image" class="product product__cup product__cup_white">
           <div class="product-content">
             <div class="templatename">
-              <div id="templateoutput" class="template"><img class="template-image" src="images/letters/default-black/letter-0.svg"></div>
+              <div id="templateoutput" class="template">
+                <img class="style-image" src="images/styles/default-black.svg">
+                <img class="template-image" src="images/letters/black/letter-0.svg"></div>
               <div id="nameoutput" class="template-name">Введите имя</div>
               <div id="wishoutput" class="template-wish">Ваше пожелание</div>
             </div>
@@ -54,13 +56,13 @@
             <div class="form-group">
               <label for="producttype">Выберите шаблон:</label>
               <div class="select-template-form">
-                <div class="select-template-container">
+                <div class="select-container select-template-container">
                   <select id="select-template" name="template">
                     <option value="1">Буква</option>
                     <option value="2">Число</option>
                   </select>
                 </div>
-                <div class="select-letter-container">
+                <div class="select-container select-letter-container">
                   <select id="select-letter">
                     <option value="0">А</option>
                     <option value="1">Б</option>
@@ -107,7 +109,7 @@
                     <option value="42">Z</option>
                   </select>
                 </div>
-                <div class="select-number-container">
+                <div class="select-container select-number-container">
                   <select id="select-number">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -193,66 +195,71 @@
                 </div>
               </div>
             </div>
-            <div>
-              <div class="form-group">
-                <label for="name">Имя:</label>
-                <input type="text" name="name" id="nameinput">
+            <div class="form-group">
+              <div class="countered-label"><label for="name">Имя:</label><span id="name-counter"></span></div>
+              <input type="text" name="name" id="nameinput" maxlength="12">
+            </div>
+            <div class="form-group">
+              <div class="countered-label"><label for="wish">Ваше пожелание:</label><span id="wish-counter"></span></div>
+              <textarea name="wish" id="wishinput" maxlength="50" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="reason">Повод:</label>
+              <div class="select-container">
+                <select name="reason" id="select-reason">
+                  <option value="default">Просто так</option>
+                  <option value="birthday">День рождения</option>
+                  <option value="jubilee">Юбилей</option>
+                  <option value="newyear">Новый год</option>
+                </select>
               </div>
             </div>
-            <div>
-              <div class="form-group">
-                <label for="wish">Ваше пожелание:</label>
-                <textarea name="wish" id="wishinput"></textarea>
-              </div>
-            </div>
-            <div>
-              <div class="form-group">
-                <span>Цвет ручки и внутри:</span>
-                <div class="cup-color-changer">
-                  <div class="cup-color-changer-radio">
-                    <input class="cup-color-radio cup-color-radio-white" type="radio" id="cup-color-white" name="cup-color" value="white" checked>
-                    <label class="label-cup-color label-cup-color-white" for="cup-color-white">Белый</label>
-                  </div>
-                  <div class="cup-color-changer-radio">
-                    <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-black" name="cup-color" value="black">
-                    <label class="label-cup-color label-cup-color-black" for="cup-color-black">Черный</label>
-                  </div>
-                  <div class="cup-color-changer-radio">
-                    <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-blue" name="cup-color" value="blue">
-                    <label class="label-cup-color label-cup-color-blue" for="cup-color-blue">Синий</label>
-                  </div>
-                  <div class="cup-color-changer-radio">
-                    <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-lightblue" name="cup-color" value="lightblue">
-                    <label class="label-cup-color label-cup-color-lightblue" for="cup-color-lightblue">Голубой</label>
-                  </div>
-                  <div class="cup-color-changer-radio">
-                    <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-burgundy" name="cup-color" value="burgundy">
-                    <label class="label-cup-color label-cup-color-burgundy" for="cup-color-burgundy">Бордовый</label>
-                  </div>
-                  <div class="cup-color-changer-radio">
-                    <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-green" name="cup-color" value="green">
-                    <label class="label-cup-color label-cup-color-green" for="cup-color-green">Зеленый</label>
-                  </div>
-                  <div class="cup-color-changer-radio">
-                    <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-lightgreen" name="cup-color" value="lightgreen">
-                    <label class="label-cup-color label-cup-color-lightgreen" for="cup-color-lightgreen">Салатовый</label>
-                  </div>
-                  <div class="cup-color-changer-radio">
-                    <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-orange" name="cup-color" value="orange">
-                    <label class="label-cup-color label-cup-color-orange" for="cup-color-orange">Оранжевый</label>
-                  </div>
-                  <div class="cup-color-changer-radio">
-                    <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-pink" name="cup-color" value="pink">
-                    <label class="label-cup-color label-cup-color-pink" for="cup-color-pink">Розовый</label>
-                  </div>
-                  <div class="cup-color-changer-radio">
-                    <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-red" name="cup-color" value="red">
-                    <label class="label-cup-color label-cup-color-red" for="cup-color-red">Красный</label>
-                  </div>
-                  <div class="cup-color-changer-radio">
-                    <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-yellow" name="cup-color" value="yellow">
-                    <label class="label-cup-color label-cup-color-yellow" for="cup-color-yellow">Желтый</label>
-                  </div>
+            <div class="form-group">
+              <span>Цвет ручки и внутри:</span>
+              <div class="cup-color-changer">
+                <div class="cup-color-changer-radio">
+                  <input class="cup-color-radio cup-color-radio-white" type="radio" id="cup-color-white" name="cup-color" value="white" checked>
+                  <label class="label-cup-color label-cup-color_white" for="cup-color-white">Белый</label>
+                </div>
+                <div class="cup-color-changer-radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-black" name="cup-color" value="black">
+                  <label class="label-cup-color label-cup-color_black" for="cup-color-black">Черный</label>
+                </div>
+                <div class="cup-color-changer-radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-blue" name="cup-color" value="blue">
+                  <label class="label-cup-color label-cup-color_blue" for="cup-color-blue">Синий</label>
+                </div>
+                <div class="cup-color-changer-radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-lightblue" name="cup-color" value="lightblue">
+                  <label class="label-cup-color label-cup-color_lightblue" for="cup-color-lightblue">Голубой</label>
+                </div>
+                <div class="cup-color-changer-radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-burgundy" name="cup-color" value="burgundy">
+                  <label class="label-cup-color label-cup-color_burgundy" for="cup-color-burgundy">Бордовый</label>
+                </div>
+                <div class="cup-color-changer-radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-green" name="cup-color" value="green">
+                  <label class="label-cup-color label-cup-color_green" for="cup-color-green">Зеленый</label>
+                </div>
+                <div class="cup-color-changer-radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-lightgreen" name="cup-color" value="lightgreen">
+                  <label class="label-cup-color label-cup-color_lightgreen" for="cup-color-lightgreen">Салатовый</label>
+                </div>
+                <div class="cup-color-changer-radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-orange" name="cup-color" value="orange">
+                  <label class="label-cup-color label-cup-color_orange" for="cup-color-orange">Оранжевый</label>
+                </div>
+                <div class="cup-color-changer-radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-pink" name="cup-color" value="pink">
+                  <label class="label-cup-color label-cup-color_pink" for="cup-color-pink">Розовый</label>
+                </div>
+                <div class="cup-color-changer-radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-red" name="cup-color" value="red">
+                  <label class="label-cup-color label-cup-color_red" for="cup-color-red">Красный</label>
+                </div>
+                <div class="cup-color-changer-radio">
+                  <input class="cup-color-radio cup-color-radio-color" type="radio" id="cup-color-yellow" name="cup-color" value="yellow">
+                  <label class="label-cup-color label-cup-color_yellow" for="cup-color-yellow">Желтый</label>
                 </div>
               </div>
             </div>

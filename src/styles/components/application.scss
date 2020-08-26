@@ -51,7 +51,10 @@
   }
 
   .template-name {
-    display: block;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     position: absolute;
     top: 28%;
@@ -79,6 +82,7 @@
 
   .product-content {
     transform: translate(-25%, -50%);
+    opacity: 0.5;
   }
 }
 
@@ -86,7 +90,8 @@
   @include glass-image("whiskey");
 
   .product-content {
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -60%);
+    opacity: 0.5;
   }
 }
 
@@ -94,7 +99,8 @@
   @include glass-image("wine");
 
   .product-content {
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -60%);
+    opacity: 0.5;
   }
 }
 
@@ -165,8 +171,22 @@
 
   .template {
     img {
+      position: relative;
+      top: 0;
+      left: 0;
       width: 100%;
       height: auto;
+    }
+
+    .style-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    .template-image {
+      z-index: 20;
     }
   }
 }
@@ -200,6 +220,40 @@
   .form-group {
     display: flex;
     flex-flow: column;
+    margin: 10px 0;
+
+    .countered-label {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+
+      span {
+        color: $inputCounterColor;
+      }
+    }
+  }
+
+  textarea {
+    font-size: 20px;
+    width: 100%;
+    resize: none;
+    border: 1px solid $formInputBorderColor;
+  }
+
+  input[type="text"] {
+    text-indent: 4px;
+    width: 100%;
+    font-size: 20px;
+    padding: 8px 0;
+    border: 1px solid $formInputBorderColor;
+  }
+
+  .select-container {
+    select {
+      width: 100%;
+      font-size: 20px;
+      padding: 8px 0;
+    }
   }
 
   .select-template-form {
@@ -207,8 +261,32 @@
     flex-flow: row nowrap;
   }
 
+  .select-template-container {
+    width: 70%;
+
+    select {
+      border-top: 1px solid $formInputBorderColor;
+      border-left: 1px solid $formInputBorderColor;
+      border-right: 0;
+      border-bottom: 1px solid $formInputBorderColor;
+    }
+  }
+
+  .select-letter-container {
+    width: 30%;
+
+    select {
+      border: 1px solid $formInputBorderColor;
+    }
+  }
+
   .select-number-container {
     display: none;
+    width: 30%;
+
+    select {
+      border: 1px solid #ccc;
+    }
   }
 }
 
@@ -225,65 +303,69 @@
 input[type="radio"] {
   display: none;
 
+  & + label {
+    border: 3px solid transparent;
+  }
+
   &:checked + label {
-    transform: scale(1.25);
+    border: 3px solid #666;
   }
 }
 
 .label-cup-color {
   display: block;
-  width: 42px;
-  height: 42px;
+  width: 32px;
+  height: 32px;
   text-indent: -1000px;
   overflow: hidden;
-  border-radius: 50%;
-  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
   margin: 0 auto;
   cursor: pointer;
 
-  &-white {
+  &_white {
     background: $labelColorWhite;
   }
 
-  &-black {
+  &_black {
     background: $labelColorBlack;
   }
 
-  &-blue {
+  &_blue {
     background: $labelColorBlue;
   }
 
-  &-lightblue {
+  &_lightblue {
     background: $labelColorLightblue;
   }
 
-  &-burgundy {
+  &_burgundy {
     background: $labelColorBurgundy;
   }
 
-  &-green {
+  &_green {
     background: $labelColorGreen;
   }
 
-  &-lightgreen {
+  &_lightgreen {
     background: $labelColorLightgreen;
   }
 
-  &-orange {
+  &_orange {
     background: $labelColorOrange;
   }
 
-  &-pink {
+  &_pink {
     background: $labelColorPink;
   }
 
-  &-red {
+  &_red {
     background: $labelColorRed;
   }
 
-  &-yellow {
+  &_yellow {
     background: $labelColorYellow;
   }
 }
