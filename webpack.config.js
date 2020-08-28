@@ -89,6 +89,14 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/site.webmanifest'),
           to: path.resolve(__dirname, 'dist')
+        },
+        {
+          from: path.resolve(__dirname, 'src/zakaz.php'),
+          to: path.resolve(__dirname, 'dist')
+        },
+        {
+          from: path.resolve(__dirname, 'src/sitemap.xml'),
+          to: path.resolve(__dirname, 'dist')
         }
       ]
     })

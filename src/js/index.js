@@ -15,9 +15,13 @@ import $ from 'jquery';
         wishInput = $('#wishinput'),
         wishOutput = $('#wishoutput'),
         svgColor = $('#svgcolorvalue').val(),
+        templateName,
         templateStyle = 'default',
         folderName = 'letters',
-        selectedValue = $('#select-letter option:selected').val(),
+        selectedOption = $('#select-letter option:selected'),
+        selectedValue = selectedOption.val(),
+        productSymbol = $('#productsymbol'),
+        productStyle = $('#productsymbol'),
         imageLink,
         lettersArray = [],
         numbersArray = [],
@@ -39,11 +43,13 @@ import $ from 'jquery';
                     $('.select-number-container').hide();
                     $('#select-letter option[value="0"]').prop('selected', true);
                     app.selectSymbol("letter", true);
+                    productSymbol.val($('#select-letter option[value="0"]').text());
             break;
           case '2': $('.select-letter-container').hide();
                     $('.select-number-container').show();
                     $('#select-number option[value="1"]').prop('selected', true);
                     app.selectSymbol("number", true);
+                    productSymbol.val($('#select-number option[value="1"]').text());
             break;
         }
       },
@@ -54,8 +60,10 @@ import $ from 'jquery';
       },
       selectStyle() {
         templateStyle = $('#select-reason option:selected').val();
+        templateName = $('#select-reason option:selected').text();
         imageLink = 'images/styles/' + templateStyle + '-' + svgColor + '.svg';
         $('#templateoutput .style-image').prop('src', imageLink);
+        productStyle.val(templateName);
       },
       selectSymbol(symbolType, reset) {
         if (symbolType === 'letter') {
@@ -70,13 +78,18 @@ import $ from 'jquery';
         if(reset) {
           selectedValue = 0;
         }
-        selectedValue = $('#select-' + symbolType + ' option:selected').val();
+        selectedOption = $('#select-' + symbolType + ' option:selected');
+        selectedValue = selectedOption.val();
         imageLink = 'images/' + folderName + '/' + svgColor + '/' + useArray[selectedValue] + '.svg';
         $('#templateoutput .template-image').prop('src', imageLink);
+        productSymbol.val(selectedOption.text());
       },
       selectColor() {
         let selectedItem = $('input[type=radio][name=cup-color]:checked');
+        let selectedColorName = $('input[type=radio][name=cup-color]:checked + label').text();
+        $('#productcolor').val(selectedColorName);
         let selectedColor = selectedItem.val();
+        console.log(selectedColorName);
         let cupBackgroundClass = 'product__cup_' + selectedColor;
         $("#product-cup-image").removeAttr('class');
         $("#product-cup-image").prop('class', '');
@@ -117,6 +130,11 @@ import $ from 'jquery';
           return;
         }
         app.getCount(inputType);
+        if( nameInput.val() !== '' && wishInput.val() !== '' ) {
+          $('.order-form-element').prop('disabled', false);
+        } else {
+          $('.order-form-element').prop('disabled', true);
+        }
       },
       getCount(counter) {
         if(counter === 'name') {

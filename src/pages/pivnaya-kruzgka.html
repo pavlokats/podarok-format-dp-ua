@@ -26,12 +26,14 @@
         </div>
       </div>
     </header>
+    <!--
     <section class="section-description">
       <div class="section-inner">
         <h2>У нас можно заказать подарок на все случаи жизни</h2>
         <p>Не знаете что подарить другу, подруге, родственнику или сотруднику? Предлагаем вам воспользоваться конструктором подарка с нанесением изображения на пивную кружку, винный бокал, чашку, стакан для виски.</p>
       </div>
     </section>
+    -->
     <section class="section-application">
       <div class="content">
         <div class="product product-beer">
@@ -50,10 +52,13 @@
       </div>
       <div class="sidebar">
         <div class="sidebar-inner">
-          <div class="back">
+          <div class="back-button">
             <a href="index.html">Выбрать другую основу</a>
           </div>
-          <form class="constructor-form" autocomplete="off">
+          <form class="constructor-form" autocomplete="off" action="zakaz.php" method="post">
+            <input type="hidden" id="producttype" name="form-producttype" value="Пивная кружка">
+            <input type="hidden" id="productsymbol" name="form-productsymbol" value="А">
+            <input type="hidden" id="productstyle" name="form-productstyle" value="Просто так">
             <input type="hidden" id="svgcolorvalue" value="white">
             <div class="form-group">
               <label for="producttype">Выберите шаблон:</label>
@@ -199,12 +204,12 @@
             </div>
 
             <div class="form-group">
-              <div class="countered-label"><label for="name">Имя:</label><span id="name-counter"></span></div>
-              <input type="text" name="name" id="nameinput" maxlength="12">
+              <div class="countered-label"><label for="form-productname">Имя:</label><span id="name-counter"></span></div>
+              <input type="text" name="form-productname" id="nameinput" maxlength="12">
             </div>
             <div class="form-group">
-              <div class="countered-label"><label for="wish">Ваше пожелание:</label><span id="wish-counter"></span></div>
-              <textarea name="wish" id="wishinput" maxlength="50" rows="3"></textarea>
+              <div class="countered-label"><label for="form-productwish">Ваше пожелание:</label><span id="wish-counter"></span></div>
+              <textarea name="form-productwish" id="wishinput" maxlength="50" rows="3"></textarea>
             </div>
             <div class="form-group">
               <label for="reason">Повод:</label>
@@ -217,13 +222,21 @@
                 </select>
               </div>
             </div>
-          </form>
-          <div class="go-to-order">
-            <div class="price">160 грн</div>
-            <div class="buy-button">
-              <a href="#">Заказать</a>
+            <div class="form-group go-to-order">
+              <div class="price"><span id="price-value">160</span> грн</div>
             </div>
-          </div>
+            <div class="order-form">
+              <div class="order-form-item order-form-name">
+                <input type="text" class="order-form-element" placeholder="Введите ваше имя" name="form-name" minlength="2" maxlength="16" size="16" required disabled>
+              </div>
+              <div class="order-form-item order-form-phone">
+                <input type="tel" class="order-form-element" placeholder="Введите ваш телефон" name="form-phone" required disabled> 
+              </div>
+              <div class="order-form-item order-form-button">
+                <input class="buy-button order-form-element" type="submit" value="Оставить заявку" disabled>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </section>

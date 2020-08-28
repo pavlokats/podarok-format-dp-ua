@@ -197,23 +197,6 @@
   .price {
     font-size: 48px;
   }
-
-  .buy-button {
-    a {
-      display: block;
-      max-width: 200px;
-      color: $buyButtonColor;
-      background: $buyButtonBackgroundColor;
-      height: 50px;
-      line-height: 50px;
-      padding: 0 20px;
-      border-radius: 25px;
-      margin: 0 auto;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-  }
 }
 
 .constructor-form {
@@ -240,7 +223,8 @@
     border: 1px solid $formInputBorderColor;
   }
 
-  input[type="text"] {
+  input[type="text"],
+  input[type="tel"] {
     text-indent: 4px;
     width: 100%;
     font-size: 20px;
@@ -367,5 +351,35 @@ input[type="radio"] {
 
   &_yellow {
     background: $labelColorYellow;
+  }
+}
+
+.order-form {
+  &-item {
+    margin: 10px 0;
+  }
+
+  .buy-button {
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    border: 0;
+    color: $buyButtonColor;
+    background: $buyButtonBackgroundColor;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    margin: 0 auto;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    &:hover {
+      background: $buyButtonBackgroundHoverColor;
+    }
+
+    &:disabled {
+      background: $buyButtonBackgroundDisabledColor;
+    }
   }
 }
