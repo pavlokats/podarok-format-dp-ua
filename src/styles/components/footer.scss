@@ -4,7 +4,6 @@
   color: $footerTextColor;
   background: $footerBackgroundColor;
   padding-bottom: 50px;
-  margin-top: 50px;
 
   a {
     color: $footerLinkColor;
@@ -81,5 +80,11 @@
     width: 100%;
     padding-top: 30px;
     text-align: center;
+  }
+}
+
+.homepage {
+  .footer {
+    margin-top: 50px;
   }
 }
