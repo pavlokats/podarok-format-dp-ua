@@ -21,10 +21,10 @@
 
   &__link {
     display: inline-block;
-    color: $sitesListLinkColor;
+    color: $linkColor;
 
     &:hover {
-      color: $sitesListLinkHoverColor;
+      color: $linkHoverColor;
     }
 
     &-image {

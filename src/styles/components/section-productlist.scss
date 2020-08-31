@@ -43,7 +43,7 @@
           font-size: 120%;
           padding: 10px;
           text-align: center;
-          color: $productListTitleColor;
+          color: $linkColor;
         }
 
         &:hover {
@@ -52,7 +52,7 @@
           }
 
           span {
-            color: $productListTitleHoverColor;
+            color: $linkHoverColor;
           }
         }
       }

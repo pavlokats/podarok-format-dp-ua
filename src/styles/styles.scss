@@ -11,6 +11,18 @@ h2 {
   font-family: 'Roboto Slab', serif;
 }
 
+a {
+  color: $linkColor;
+
+  &:hover {
+    color: $linkHoverColor;
+  }
+}
+
+.section-description {
+  background: $descriptionBackgroundColor;
+}
+
 .section-inner {
   max-width: 1170px;
   padding: 50px 20px;
