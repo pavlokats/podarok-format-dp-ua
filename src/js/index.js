@@ -37,6 +37,10 @@ import $ from 'jquery';
     let app = {
       maxNameCount: 12,
       maxWishCount: 50,
+      maxLettersCount: 43,
+      maxNumbersCount: 81,
+      cupPriceWhite: 120,
+      cupPriceColor: 150,
       selectTemplate() {
         switch ($('#select-template option:selected').val()) {
           case '1': $('.select-letter-container').show();
@@ -96,9 +100,9 @@ import $ from 'jquery';
         $('#product-cup-image')[0].className = '';
         $('#product-cup-image').addClass('product').addClass('product__cup').addClass(cupBackgroundClass);
         if(selectedItem.hasClass('cup-color-radio-color')) {
-          $('#price-value').html('150');
+          $('#price-value').html(app.cupPriceColor);
         } else {
-          $('#price-value').html('120');
+          $('#price-value').html(app.cupPriceWhite);
         }
       },
       changeSize() {
@@ -149,8 +153,8 @@ import $ from 'jquery';
       }
     }
 
-    app.fillArray(lettersArray, 'letter', 0, 43);
-    app.fillArray(numbersArray, 'number', 0, 81);
+    app.fillArray(lettersArray, 'letter', 0, app.maxLettersCount);
+    app.fillArray(numbersArray, 'number', 0, app.maxNumbersCount);
 
     app.changeSize();
     $(window).resize(app.changeSize);
