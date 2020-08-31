@@ -11,6 +11,23 @@ h2 {
   font-family: 'Roboto Slab', serif;
 }
 
+h1 {
+  color: $bannerTextColor;
+  font-size: 150%;
+
+  @media all and (min-width: 768px) {
+    font-size: 200%;
+  }
+}
+
+h2 {
+  font-size: 120%;
+
+  @media all and (min-width: 768px) {
+    font-size: 150%;
+  }
+}
+
 a {
   color: $linkColor;
 
