@@ -34,6 +34,8 @@ if (isset($_POST['form-name']) && isset($_POST['form-phone'])) {
         $msg .= "-----------------------------------------------------------\r\n";
         $msg .= "Поступил заказ на ".$productType."\r\n";
         $msg .= "Наносимый символ: ".$productSymbol."\r\n";
+        $msg .= "Наносимое имя: ".$productName."\r\n";
+        $msg .= "Наносимое пожелание: ".$productWish."\r\n";
         if( $productType === 'Чашка') {
             $msg .= "Цвет: ".$productColor."\r\n";
         }

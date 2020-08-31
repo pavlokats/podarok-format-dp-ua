@@ -21,7 +21,7 @@ import $ from 'jquery';
         selectedOption = $('#select-letter option:selected'),
         selectedValue = selectedOption.val(),
         productSymbol = $('#productsymbol'),
-        productStyle = $('#productsymbol'),
+        productStyle = $('#productstyle'),
         imageLink,
         lettersArray = [],
         numbersArray = [],
