@@ -10,29 +10,35 @@ import $ from 'jquery';
 
 (function () {
   $( document ).ready(function() {
-    let nameInput = $('#nameinput'),
+    let dropdownLetter = $('#select-letter'),
+        dropdownNumber = $('#select-number'),
+        dropdownReason = $('#select-reason'),
+        dropdownTemplate = $('#select-template'),
+        folderName = 'letters',
+        imageLink,
+        lettersArray = [],
+        nameCounter = $('#name-counter'),
+        nameFontSize,
+        nameInput = $('#nameinput'),
         nameOutput = $('#nameoutput'),
-        wishInput = $('#wishinput'),
-        wishOutput = $('#wishoutput'),
+        numbersArray = [],
+        productStyle = $('#productstyle'),
+        productSymbol = $('#productsymbol'),
+        productWidth,
+        radioCupColor = $('input[type=radio][name=cup-color]'),
+        selectedColor,
+        selectedColorName,
+        selectedItem,
+        selectedOption = $('#select-letter option:selected'),
+        selectedValue = selectedOption.val(),
         svgColor = $('#svgcolorvalue').val(),
         templateName,
         templateStyle = 'default',
-        folderName = 'letters',
-        selectedOption = $('#select-letter option:selected'),
-        selectedValue = selectedOption.val(),
-        productSymbol = $('#productsymbol'),
-        productStyle = $('#productstyle'),
-        imageLink,
-        lettersArray = [],
-        numbersArray = [],
         useArray = lettersArray,
-        nameCounter = $('#name-counter'),
         wishCounter = $('#wish-counter'),
-        dropdownTemplate = $('#select-template'),
-        dropdownReason = $('#select-reason'),
-        dropdownLetter = $('#select-letter'),
-        dropdownNumber = $('#select-number'),
-        radioCupColor = $('input[type=radio][name=cup-color]');
+        wishFontSize,
+        wishInput = $('#wishinput'),
+        wishOutput = $('#wishoutput');
 
     let app = {
       maxNameCount: 12,
@@ -89,11 +95,10 @@ import $ from 'jquery';
         productSymbol.val(selectedOption.text());
       },
       selectColor() {
-        let selectedItem = $('input[type=radio][name=cup-color]:checked');
-        let selectedColorName = $('input[type=radio][name=cup-color]:checked + label').text();
+        selectedItem = $('input[type=radio][name=cup-color]:checked');
+        selectedColorName = $('input[type=radio][name=cup-color]:checked + label').text();
         $('#productcolor').val(selectedColorName);
-        let selectedColor = selectedItem.val();
-        console.log(selectedColorName);
+        selectedColor = selectedItem.val();
         let cupBackgroundClass = 'product__cup_' + selectedColor;
         $("#product-cup-image").removeAttr('class');
         $("#product-cup-image").prop('class', '');
@@ -106,9 +111,9 @@ import $ from 'jquery';
         }
       },
       changeSize() {
-        let productWidth = $('.product').width(),
-            nameFontSize = productWidth / 22.22,
-            wishFontSize = productWidth / 33.33;
+        productWidth = $('.product').width();
+        nameFontSize = productWidth / 22.22;
+        wishFontSize = productWidth / 33.33;
         $('.product').height(productWidth);
         $('.template-name').css('font-size', nameFontSize);
         $('.template-wish').css('font-size', wishFontSize);
