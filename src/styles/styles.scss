@@ -28,6 +28,14 @@ h2 {
   }
 }
 
+p {
+  font-size: 90%;
+
+  @media all and (min-width: 768px) {
+    font-size: 100%;
+  }
+}
+
 a {
   color: $linkColor;
 
