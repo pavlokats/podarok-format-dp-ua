@@ -10,7 +10,9 @@ import $ from 'jquery';
 
 (function () {
   $( document ).ready(function() {
-    let dropdownLetter = $('#select-letter'),
+    let count,
+        cupBackgroundClass,
+        dropdownLetter = $('#select-letter'),
         dropdownNumber = $('#select-number'),
         dropdownReason = $('#select-reason'),
         dropdownTemplate = $('#select-template'),
@@ -99,7 +101,7 @@ import $ from 'jquery';
         selectedColorName = $('input[type=radio][name=cup-color]:checked + label').text();
         $('#productcolor').val(selectedColorName);
         selectedColor = selectedItem.val();
-        let cupBackgroundClass = 'product__cup_' + selectedColor;
+        cupBackgroundClass = 'product__cup_' + selectedColor;
         $("#product-cup-image").removeAttr('class');
         $("#product-cup-image").prop('class', '');
         $('#product-cup-image')[0].className = '';
@@ -147,10 +149,10 @@ import $ from 'jquery';
       },
       getCount(counter) {
         if(counter === 'name') {
-          let count = this.maxNameCount - nameInput.val().length;
+          count = this.maxNameCount - nameInput.val().length;
           nameCounter.html(count);
         } else if (counter === 'wish') {
-          let count = this.maxWishCount - wishInput.val().length;
+          count = this.maxWishCount - wishInput.val().length;
           wishCounter.html(count);
         } else {
           return;
