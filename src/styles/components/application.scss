@@ -223,8 +223,8 @@
     border: 1px solid $formInputBorderColor;
   }
 
-  input[type="text"],
-  input[type="tel"] {
+  input[type="tel"],
+  &-text-field {
     text-indent: 4px;
     width: 100%;
     font-size: 20px;
