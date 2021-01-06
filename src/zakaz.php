@@ -25,8 +25,8 @@ if (isset($_POST['form-name']) && isset($_POST['form-phone'])) {
         <?php
         $sendto   = "info@format.dp.ua";
         $subject  = "Поступил заказ на ".$productType." с сайта podarok.format.dp.ua";
-        $headers  = "From: info@format.dp.ua\r\n";
-        $headers .= "Reply-To: info@format.dp.ua\r\n";
+        $headers  = "From: example@example.dp.ua\r\n";
+        $headers .= "Reply-To: example@example.dp.ua\r\n";
         $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "Content-Type: text/plain;charset=utf-8 \r\n";
         $msg = "-----------------------------------------------------------\r\n";
